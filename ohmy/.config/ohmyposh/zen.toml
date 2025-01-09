@@ -7,7 +7,14 @@ final_space = true
  alignment = 'left'
  newline = true
 
- [[blocks.segments]]
+[[blocks.segments]]
+type = "os"
+style = "plain"
+foreground = "#26C6DA"
+background = "transparent"
+template = "{{ .Icon }} "
+
+[[blocks.segments]]
   foreground = 'blue'
   background = 'transparent'
   type = 'path'
@@ -40,7 +47,7 @@ template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end
       "{{if eq .Code 0}}magenta{{end}}",
     ]
     background = 'transparent'
-    template = "\u276f "
+    template = " \u276f "
 
 [transient_prompt]
     foreground_templates = [
@@ -49,4 +56,3 @@ template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end
     ]
  background = 'transparent'
  template = "\u276f "
-
