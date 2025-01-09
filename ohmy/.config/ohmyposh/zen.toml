@@ -8,11 +8,11 @@ final_space = true
  newline = true
 
 [[blocks.segments]]
-type = "os"
-style = "plain"
-foreground = "#26C6DA"
-background = "transparent"
-template = "{{ .Icon }} "
+  type = "os"
+  style = "plain"
+  foreground = "#26C6DA"
+  background = "transparent"
+  template = "{{ .Icon }} "
 
 [[blocks.segments]]
   foreground = 'blue'
