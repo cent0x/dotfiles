@@ -1,3 +1,4 @@
+
 - verrify if zsh is the shell `echo $SHELL`and  install `zsh` if not  
 ```
 sudo apt update
@@ -43,4 +44,16 @@ eval "$(oh-my-posh -i -s zsh -c ~/.config/ohmyposh/zen.toml)"
 - add tpm plugin
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+```
+
+- clone the dotfile
+```
+https://github.com/cent0x/dotfiles.git
+```
+
+- create symlink using stow
+```
+stow ohmy
+stow zsh
+stow tmux
 ```
