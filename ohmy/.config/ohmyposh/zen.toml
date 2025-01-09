@@ -47,7 +47,7 @@ template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end
       "{{if eq .Code 0}}magenta{{end}}",
     ]
     background = 'transparent'
-    template = " \u276f "
+    template = "\u276f "
 
 [transient_prompt]
     foreground_templates = [
