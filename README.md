@@ -40,6 +40,11 @@ curl -s https://ohmyposh.dev/install.sh | bash -s
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
 
+- change `.zshrc` to `.zshrc.bak`
+```
+mv ~/.zshrc ~/.zshrc.bak
+```
+
 - clone the dotfile
 ```
 git clone https://github.com/cent0x/dotfiles.git
