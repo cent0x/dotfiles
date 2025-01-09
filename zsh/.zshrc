@@ -66,7 +66,7 @@ eval "$(oh-my-posh -i -s zsh -c ~/.config/ohmyposh/zen.toml)"
 
 #### Aloxaf/fzf-tab ###
 
- zinit light Aloxaf/fzf-tab
+zinit light Aloxaf/fzf-tab
 
 ### fzf-tab additional config ###
 
@@ -90,5 +90,5 @@ zstyle ':fzf-tab:*' use-fzf-default-opts yes
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
-# zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+#zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
