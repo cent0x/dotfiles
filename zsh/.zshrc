@@ -22,8 +22,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### zinit plugins ###
-
-zinit light zsh-users/autosuggestions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
