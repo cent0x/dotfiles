@@ -10,9 +10,9 @@ final_space = true
 [[blocks.segments]]
   type = "os"
   style = "plain"
-  foreground = "#26C6DA"
+  foreground = "blue"
   background = "transparent"
-  template = "{{ .Icon }} "
+  template = "{{ if eq .OS \"kali\" }}  {{ else }}{{ .Icon }}{{ end }}"
 
 [[blocks.segments]]
   foreground = 'blue'
