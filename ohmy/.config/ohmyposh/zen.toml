@@ -12,7 +12,7 @@ final_space = true
   style = "plain"
   foreground = "blue"
   background = "transparent"
-  template = "{{ if eq .OS \"kali\" }}  {{ else }}{{ .Icon }}{{ end }}"
+  template = "{{ if eq .OS \"kali\" }}  {{ else }}{{ .Icon  }}{{ end }}"
 
 [[blocks.segments]]
   foreground = 'blue'
