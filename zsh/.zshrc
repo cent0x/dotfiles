@@ -67,6 +67,8 @@ eval "$(oh-my-posh -i -s zsh -c ~/.config/ohmyposh/zen.toml)"
 #### Aloxaf/fzf-tab ###
 
 zinit light Aloxaf/fzf-tab
+zpcompinit; zpcdreplay
+zinit load Aloxaf/fzf-tab
 
 ### fzf-tab additional config ###
 
