@@ -59,6 +59,7 @@ zstyle ':completion:*' menu no
 ### Aliases ###
 alias ls='ls --color'
 alias cls='clear'
+alias bat='batcat'
 
 #### ohmyposh
 export PATH="$HOME/.local/bin:$PATH"
