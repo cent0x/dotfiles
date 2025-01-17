@@ -35,7 +35,7 @@ bindkey '^H' backward-kill-word
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_ALT_C_COMMAND='find . -maxdepth 1 -type d'
-export FZF_ALT_C_OPTS='--preview "tree -C {} | head -200"'
+export FZF_ALT_C_OPTS='--preview "tree -a -C {} | head -200"'
 export FZF_CTRL_T_COMMAND='find . -type f -print -o -type d -print 2> /dev/null'
 
 # History
