@@ -1,89 +1,80 @@
+-- ~/.config/nvim/init.lua
+
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
-  
--- Bootstrap lazy.nvim
+vim.g.mapleader = " "
+
+-- Ensure lazy.nvim is installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
--- Setup lazy.nvim
-require("lazy").setup({
-  spec = {
-    -- add your plugins here
-    {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.8', -- or use the latest stable release
-        dependencies = { 'nvim-lua/plenary.nvim' }
-    },
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate'
-    },
-  
+-- Disable mouse
+vim.opt.mouse = ""
+local plugins = {
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
   },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "catppuccin" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
-})
-
--- Load Telescope
-require('telescope').setup{
-    defaults = {
-        -- Default configuration for Telescope goes here:
-        -- config_key = value,
-    },
-    pickers = {
-        -- Default configuration for builtin pickers goes here:
-        -- picker_name = {
-        --   picker_config_key = value,
-        --   ...
-        -- }
-    },
-    extensions = {
-        -- Your extension configuration goes here:
-        -- extension_name = {
-        --   extension_config_key = value,
-        -- }
-    }
+  {
+    "nvim-telescope/telescope.nvim",
+    requires = { {'nvim-lua/plenary.nvim'} }
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate"
+  }
 }
 
--- Key mappings
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>telescope find_files<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true, silent = true })
+local opts = {
+}
 
-require('nvim-treesitter.configs').setup {
-    ensure_installed = { "c", "lua", "vim", "python", "javascript" }, -- List of languages you want to install
-    sync_install = false, -- Install languages synchronously (only applied to `ensure_installed`)
-    highlight = {
-        enable = true, -- false will disable the whole extension
-        additional_vim_regex_highlighting = false,
+-- Setup lazy.nvim
+require("lazy").setup(plugins, opts)
+
+-- Setup Catppuccin theme
+require("catppuccin").setup({
+  transparent_background = true,
+  term_colors = true,
+  styles = {
+    comments = { "italic" },
+    keywords = { "bold" },
+    functions = { "italic", "bold" },
     },
-    indent = {
-        enable = true
-    },
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    telescope = true,
+  },
+})
+vim.cmd.colorscheme("catppuccin")
+
+-- Setup Telescope keymaps
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- Setup nvim-treesitter
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "lua", "vim", "python" }, -- List of languages you want to install
+  sync_install = false, -- Install languages synchronously (only applied to `ensure_installed`)
+  highlight = {
+    enable = true, -- false will disable the whole extension
+    additional_vim_regex_highlighting = false,
+  },
 }
