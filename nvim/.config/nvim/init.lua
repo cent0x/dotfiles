@@ -73,8 +73,6 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "lua", "vim", "python" }, -- List of languages you want to install
   sync_install = false, -- Install languages synchronously (only applied to `ensure_installed`)
-  highlight = {
-    enable = true, -- false will disable the whole extension
-    additional_vim_regex_highlighting = false,
-  },
+  highlight = { enable = true }, -- false will disable the whole extension
+  indent = { enable = true },
 }
