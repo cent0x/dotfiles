@@ -61,8 +61,11 @@ alias ls='ls --color'
 alias cls='clear'
 alias bat='batcat'
 
-#### ohmyposh
+#### $PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/mnt/c/Users/VincentCaday/AppData/Local/Programs/AIShell:$PATH"
+
+#### ohmyposh
 eval "$(oh-my-posh -i -s zsh -c ~/.config/ohmyposh/zen.toml)"
 
 #### Aloxaf/fzf-tab ###
