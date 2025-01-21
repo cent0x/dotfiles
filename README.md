@@ -18,6 +18,7 @@ sudo apt install unzip
 sudo apt install eza
 sudo apt install rg
 sudo apt install luarocks
+sudo apt install batcat
 sudo apt install gcc -y
 ```
 
