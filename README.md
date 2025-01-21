@@ -16,6 +16,9 @@ sudo apt install tree
 sudo apt install stow
 sudo apt install unzip
 sudo apt install eza
+sudo apt install rg
+sudo apt install luarocks
+sudo apt install gcc -y
 ```
 
 - install zinit
