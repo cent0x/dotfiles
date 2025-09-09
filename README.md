@@ -2,6 +2,7 @@
 - verrify if zsh is the shell `echo $SHELL`and  install `zsh` if not  
 ```
 sudo apt update
+sudo apt upgrade
 sudo apt install zsh
 ```
 
