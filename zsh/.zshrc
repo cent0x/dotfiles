@@ -63,7 +63,6 @@ alias bat='batcat'
 
 #### $PATH
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/mnt/c/Users/VincentCaday/AppData/Local/Programs/AIShell:$PATH"
 
 #### ohmyposh
 eval "$(oh-my-posh -i -s zsh -c ~/.config/ohmyposh/zen.toml)"
@@ -97,4 +96,10 @@ zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
 #zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+
+
+# Add Docker completion manually
+fpath=(~/.zsh/completions $fpath)
+autoload -Uz compinit
+compinit
 
