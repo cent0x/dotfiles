@@ -29,7 +29,7 @@ fi
 echo "--- Installing essential command-line tools ---"
 # Install all required packages in a single command.
 # apt automatically skips packages that are already installed.
-sudo apt install -y tree stow unzip eza ripgrep luarocks bat gcc git curl
+sudo apt install -y tree stow unzip eza ripgrep luarocks bat gcc git curli neovim
 
 # Check if 'bat' is available. If not, create a symlink from 'batcat'.
 if ! command -v bat &> /dev/null; then
@@ -86,6 +86,7 @@ cd "$HOME/dotfiles"
 stow ohmy
 stow zsh
 stow tmux
+stow nvim
 
 echo "--- Setup complete! ---"
 echo "Please log out and log back in, or run 'exec zsh' to use your new shell and configuration."
